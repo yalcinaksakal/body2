@@ -1,19 +1,19 @@
-import { CircleGeometry, MeshStandardMaterial, DoubleSide, Mesh } from "three";
+import { PlaneGeometry, MeshStandardMaterial, DoubleSide, Mesh } from "three";
 
 const createPlane = () => {
   const plane = new Mesh(
-    new CircleGeometry(5, 64),
+    new PlaneGeometry(window.innerWidth, window.innerHeight, 64, 64),
     new MeshStandardMaterial({
-      color: "dodgerblue",
-      transparent: true,
-      opacity: 0.4,
+      color: "gray",
+      // transparent: true,
+      // opacity: 0.8,
     })
   );
 
   plane.castShadow = true;
   plane.receiveShadow = true;
-  plane.rotation.x = -Math.PI / 2;
-  plane.position.set(0, -1, 0);
+  plane.rotation.x = (-Math.PI * 0.8) / 2;
+  plane.position.set(0, 0, -3);
   plane.material.side = DoubleSide;
 
   return plane;

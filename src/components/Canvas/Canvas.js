@@ -6,10 +6,7 @@ const Canvas = ({ setIsLoading }) => {
   const canvasRef = useRef();
 
   useEffect(() => {
-    const { onResize, clicked, animate, domElement } = setScene(
-      canvasRef.current,
-      setIsLoading
-    );
+    const { onResize, animate } = setScene(canvasRef.current, setIsLoading);
 
     let frameId;
 
@@ -20,7 +17,6 @@ const Canvas = ({ setIsLoading }) => {
 
     //resize
     window.addEventListener("resize", onResize);
-    domElement.addEventListener("click", clicked);
 
     //start animation
     RAF();
@@ -29,7 +25,6 @@ const Canvas = ({ setIsLoading }) => {
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", onResize);
-      domElement.removeEventListener("click", clicked);
     };
   }, [setIsLoading]);
 

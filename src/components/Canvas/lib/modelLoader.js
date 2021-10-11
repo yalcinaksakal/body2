@@ -9,7 +9,7 @@ const modelLoader = onLoadFunc => {
     model.traverse(object => {
       if (object.isMesh)
         object.material = new MeshStandardMaterial({
-          color: "white",
+          color: "#ffceb4",
           transparent: false,
           opacity: 1,
         });
@@ -26,11 +26,11 @@ const modelLoader = onLoadFunc => {
   const loader = new GLTFLoader();
 
   loader.load("gtlfs/female_base_mesh/scene.gltf", gltf =>
-    addModel(gltf, 3.5, 0, Math.PI)
+    addModel(gltf, 3.5, 1, Math.PI)
   );
 
   loader.load("gtlfs/male_base_mesh/scene.gltf", gltf =>
-    addModel(gltf, 1, 5.3)
+    addModel(gltf, 1, 6.5)
   );
 };
 export default modelLoader;

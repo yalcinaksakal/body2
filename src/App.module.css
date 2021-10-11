@@ -11,18 +11,18 @@ button {
   width: 130px;
   top: 1rem;
   left: calc(50% - 65px);
-
+  user-select: none;
   padding: 5px 10px;
   border-radius: 5px;
   background: white;
   font-size: 15px;
   border: none;
-  transition: all ease 0.1s;
+  transition: all 0.1s ease-out;
   cursor: pointer;
 }
 
 button:hover {
   /* transform: scale(1.1); */
   color: white;
-  background: goldenrod;
+  background: orange;
 }
