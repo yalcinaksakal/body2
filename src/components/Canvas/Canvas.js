@@ -6,7 +6,7 @@ const Canvas = ({ setIsLoading }) => {
   const canvasRef = useRef();
 
   useEffect(() => {
-    const { onResize, keyDownHandler, keyUpHandler, animate } = setScene(
+    const { onResize, clicked, animate, domElement } = setScene(
       canvasRef.current,
       setIsLoading
     );
@@ -20,8 +20,7 @@ const Canvas = ({ setIsLoading }) => {
 
     //resize
     window.addEventListener("resize", onResize);
-    window.addEventListener("keydown", keyDownHandler);
-    window.addEventListener("keyup", keyUpHandler);
+    domElement.addEventListener("click", clicked);
 
     //start animation
     RAF();
@@ -30,8 +29,7 @@ const Canvas = ({ setIsLoading }) => {
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", onResize);
-      window.removeEventListener("keydown", keyDownHandler);
-      window.removeEventListener("keyup", keyUpHandler);
+      domElement.removeEventListener("click", clicked);
     };
   }, [setIsLoading]);
 
