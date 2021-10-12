@@ -1,5 +1,5 @@
 import { Color, Scene } from "three";
-import createCube from "./bodyParts";
+import createCube from "./createBodyParts";
 
 import myCam from "./camera";
 import createPlane from "./createPlane";
@@ -81,7 +81,7 @@ const setScene = (parent, setIsLoading) => {
 
   //body parts
   const cube = createCube();
-  // scene.add(cube);
+  scene.add(cube);
   const moveCube = (x, y, z) => {
     cube.position.x += x;
     cube.position.y += y;
@@ -90,17 +90,17 @@ const setScene = (parent, setIsLoading) => {
   };
 
   //Rotation
-  let isRotating = false;
-  let prevX = 0;
-  let direction = 1;
+  // let isRotating = false;
+  // let prevX = 0;
+  // let direction = 1;
 
-  const rotateModel = r => models.forEach(m => (m.rotation.y += r));
-  const handleRotation = posx => {
-    if (autoRotate) autoRotate = false;
-    direction = posx > prevX ? 1 : -1;
-    prevX = posx;
-    rotateModel(0.05 * direction);
-  };
+  // const rotateModel = r => models.forEach(m => (m.rotation.y += r));
+  // const handleRotation = posx => {
+  //   if (autoRotate) autoRotate = false;
+  //   direction = posx > prevX ? 1 : -1;
+  //   prevX = posx;
+  //   rotateModel(0.05 * direction);
+  // };
 
   //click
   // domElement.addEventListener("mousedown", () => (isRotating = true));
@@ -111,13 +111,13 @@ const setScene = (parent, setIsLoading) => {
   // });
   domElement.addEventListener("click", clicked);
 
-  //touch
-  domElement.addEventListener("touchstart", () => (isRotating = true));
-  domElement.addEventListener("touchend", () => (isRotating = false));
-  domElement.addEventListener("touchmove", e => {
-    if (!isRotating) return;
-    handleRotation(e.touches[0].clientX);
-  });
+  // //touch
+  // domElement.addEventListener("touchstart", () => (isRotating = true));
+  // domElement.addEventListener("touchend", () => (isRotating = false));
+  // domElement.addEventListener("touchmove", e => {
+  //   if (!isRotating) return;
+  //   handleRotation(e.touches[0].clientX);
+  // });
 
   //keys
 
