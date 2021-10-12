@@ -1,17 +1,24 @@
-import { Box3, CircleGeometry, MeshBasicMaterial, Mesh } from "three";
+import { Raycaster, ConeGeometry, Mesh, MeshNormalMaterial } from "three";
 
-const geometry = new CircleGeometry(0.3, 32);
-const material = new MeshBasicMaterial({ color: 0xffff00 });
-const circle = new Mesh(geometry, material);
-// circle.rotateX(Math.PI / 2);
+const raycaster = new Raycaster();
 
-const intersectionChecker = (mouse, model, scene) => {
-  scene.remove(circle);
-  circle.position.set(mouse.x, mouse.y, 0);
-  const box1 = new Box3().setFromObject(circle);
-  const box2 = new Box3().setFromObject(model);
-  if (box1.intersectsBox(box2)) scene.add(circle);
-  console.log(box1.intersectsBox(box2));
+const geometryHelper = new ConeGeometry(0.2, 1, 4);
+// geometryHelper.translate(0, 50, 0);
+geometryHelper.rotateX(Math.PI / 2);
+const helper = new Mesh(geometryHelper, new MeshNormalMaterial());
+
+const intersectionChecker = (mouse, model, camera, scene) => {
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(scene.children);
+  // Toggle rotation bool for meshes that we clicked
+  console.log(intersects, mouse);
+  if (intersects.length > 0) {
+    helper.position.set(0, 0, 0);
+    console.log(intersects[0]);
+    helper.lookAt(intersects[0].face.normal);
+    helper.position.copy(intersects[0].point);
+    scene.add(helper);
+  }
 };
 
 export default intersectionChecker;

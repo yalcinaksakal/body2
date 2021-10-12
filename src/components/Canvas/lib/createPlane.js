@@ -13,7 +13,7 @@ const createPlane = () => {
   plane.castShadow = true;
   plane.receiveShadow = true;
   plane.rotation.x = (-Math.PI * 0.8) / 2;
-  plane.position.set(0, 0, -3);
+  plane.position.set(0, 0, 0);
   plane.material.side = DoubleSide;
 
   return plane;

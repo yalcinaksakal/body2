@@ -1,4 +1,5 @@
 import { Color, Scene } from "three";
+import bodyParts from "./bodyParts";
 
 import myCam from "./camera";
 import createPlane from "./createPlane";
@@ -7,7 +8,7 @@ import createLights from "./lights";
 import modelLoader from "./modelLoader";
 import posMapper from "./posMapper";
 import createR from "./renderer";
-// import setOrbitControls from "./setOrbitControls";
+import setOrbitControls from "./setOrbitControls";
 
 const models = [];
 let currentModel = 0;
@@ -52,13 +53,13 @@ const setScene = (parent, setIsLoading) => {
   };
 
   //add controls
-  // const controls = setOrbitControls(camera, domElement);
+  const controls = setOrbitControls(camera, domElement);
 
   //animate
   const animate = () => {
     renderer.render(scene, camera);
-    if (autoRotate) rotateModel(0.01);
-    // controls.update();
+    // if (autoRotate) rotateModel(0.01);
+    controls.update();
   };
 
   //background, texture onLoad calls appender
@@ -77,8 +78,18 @@ const setScene = (parent, setIsLoading) => {
     intersectionChecker(
       posMapper(event.clientX, event.clientY, camera),
       models[currentModel],
+      camera,
       scene
     );
+  };
+
+  //body parts
+  const cube = bodyParts();
+  scene.add(cube);
+  const moveCube = (x, y, z) => {
+    cube.position.x += x;
+    cube.position.y += y;
+    cube.position.z += z;
   };
 
   //Rotation
@@ -95,13 +106,13 @@ const setScene = (parent, setIsLoading) => {
   };
 
   //click
-  domElement.addEventListener("mousedown", () => (isRotating = true));
-  domElement.addEventListener("mouseup", () => (isRotating = false));
-  domElement.addEventListener("mousemove", e => {
-    if (!isRotating) return;
-    handleRotation(e.clientX);
-  });
-  domElement.addEventListener("click", clicked);
+  // domElement.addEventListener("mousedown", () => (isRotating = true));
+  // domElement.addEventListener("mouseup", () => (isRotating = false));
+  // domElement.addEventListener("mousemove", e => {
+  //   if (!isRotating) return;
+  //   handleRotation(e.clientX);
+  // });
+  // domElement.addEventListener("click", clicked);
 
   //touch
   domElement.addEventListener("touchstart", () => (isRotating = true));
@@ -111,6 +122,32 @@ const setScene = (parent, setIsLoading) => {
     handleRotation(e.touches[0].clientX);
   });
 
+  //keys
+
+  window.addEventListener("keydown", ({ code }) => {
+    switch (code) {
+      case "ArrowUp":
+        moveCube(0, 0.02, 0);
+        break;
+      case "ArrowDown":
+        moveCube(0, -0.02, 0);
+        break;
+      case "ArrowLeft":
+        moveCube(-0.02, 0, 0);
+        break;
+      case "ArrowRight":
+        moveCube(0.02, 0, 0);
+        break;
+      case "KeyA":
+        moveCube(0, 0, 0.02);
+        break;
+      case "KeyZ":
+        moveCube(0, 0, -0.02);
+        break;
+      default:
+        break;
+    }
+  });
   return {
     animate,
     onResize,

@@ -7,13 +7,15 @@ const modelLoader = onLoadFunc => {
     const model = gltf.scene;
     models.push(model);
     model.traverse(object => {
-      if (object.isMesh)
+      if (object.isMesh) {
         object.material = new MeshStandardMaterial({
           color: "#ffceb4",
           transparent: false,
           opacity: 1,
         });
-      object.castShadow = true;
+        object.castShadow = true;
+        object.receiveShadow = true;
+      }
     });
     model.scale.set(scale, scale, scale);
     model.rotation.y = roty;
@@ -26,11 +28,11 @@ const modelLoader = onLoadFunc => {
   const loader = new GLTFLoader();
 
   loader.load("gtlfs/female_base_mesh/scene.gltf", gltf =>
-    addModel(gltf, 3.5, 1, Math.PI)
+    addModel(gltf, 3.5, 0.2, Math.PI)
   );
 
   loader.load("gtlfs/male_base_mesh/scene.gltf", gltf =>
-    addModel(gltf, 1, 6.5)
+    addModel(gltf, 1, 5.5)
   );
 };
 export default modelLoader;

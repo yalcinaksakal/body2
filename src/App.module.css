@@ -10,7 +10,8 @@ button {
   position: fixed;
   width: 130px;
   top: 1rem;
-  left: calc(50% - 65px);
+  left: 10px;
+  /* left: calc(50% - 65px); */
   user-select: none;
   padding: 5px 10px;
   border-radius: 5px;
