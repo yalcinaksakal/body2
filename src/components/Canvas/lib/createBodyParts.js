@@ -17,15 +17,15 @@ const createBodyParts = (points, name) => {
 const createCube = () => {
   const points = [];
 
-  points.push(new Vector3(-0.23, 0.45, 0.16));
-  points.push(new Vector3(-0.5, 0.45, 0.16));
-  points.push(new Vector3(-0.22, 0.38, -0.41));
-  points.push(new Vector3(-0.44, 0.38, -0.41));
+  points.push(new Vector3(-0.6, 1.94, -0.01));
+  points.push(new Vector3(-0.2, 1.94, -0.01));
+  points.push(new Vector3(-0.15, 1.94, -0.46));
+  points.push(new Vector3(-0.6, 1.94, -0.46));
 
-  points.push(new Vector3(-0.2, 0.7, -0.03));
-  points.push(new Vector3(-0.5, 0.7, -0.03));
-  points.push(new Vector3(-0.5, 0.74, -0.36));
-  points.push(new Vector3(-0.2, 0.74, -0.36));
+  points.push(new Vector3(-0.65, 2.34, 0.07));
+  points.push(new Vector3(-0.15, 2.34, 0.07));
+  points.push(new Vector3(-0.15, 2.34, -0.4));
+  points.push(new Vector3(-0.55, 2.34, -0.4));
 
   const geometry = new BoxGeometry(0.01, 0.01, 0.01);
   const material = new MeshBasicMaterial({

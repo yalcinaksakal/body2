@@ -23,7 +23,7 @@ export const changeModel = () => {
 };
 
 const setScene = (parent, setIsLoading) => {
-  let autoRotate = true;
+  // let autoRotate = true;
 
   //renderer
   const renderer = createR();
@@ -76,7 +76,10 @@ const setScene = (parent, setIsLoading) => {
 
   scene.add(helper);
   const clicked = event => {
-    intersectionChecker(posMapper(event.clientX, event.clientY), cube, camera);
+    const mouse = posMapper(event.clientX, event.clientY);
+    intersectionChecker(mouse, cube, camera);
+
+    // panDelta.subVectors( panEnd, panStart ).multiplyScalar( scope.panSpeed );
   };
 
   //body parts
