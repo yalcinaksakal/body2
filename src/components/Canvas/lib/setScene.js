@@ -3,7 +3,7 @@ import createCube from "./bodyParts";
 
 import myCam from "./camera";
 import createPlane from "./createPlane";
-import intersectionChecker from "./intersectionChecker";
+import intersectionChecker, { helper } from "./intersectionChecker";
 import createLights from "./lights";
 import modelLoader from "./modelLoader";
 import posMapper from "./posMapper";
@@ -74,13 +74,9 @@ const setScene = (parent, setIsLoading) => {
     renderer.setSize(window.innerWidth, window.innerHeight);
   };
 
+  scene.add(helper);
   const clicked = event => {
-    intersectionChecker(
-      posMapper(event.clientX, event.clientY, camera),
-      models[currentModel],
-      camera,
-      scene
-    );
+    intersectionChecker(posMapper(event.clientX, event.clientY), cube, camera);
   };
 
   //body parts
@@ -113,7 +109,7 @@ const setScene = (parent, setIsLoading) => {
   //   if (!isRotating) return;
   //   handleRotation(e.clientX);
   // });
-  // domElement.addEventListener("click", clicked);
+  domElement.addEventListener("click", clicked);
 
   //touch
   domElement.addEventListener("touchstart", () => (isRotating = true));
