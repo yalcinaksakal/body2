@@ -81,7 +81,7 @@ const setScene = (parent, setIsLoading) => {
 
   //body parts
   const cube = createCube();
-  scene.add(cube);
+  // scene.add(cube);
   const moveCube = (x, y, z) => {
     cube.position.x += x;
     cube.position.y += y;

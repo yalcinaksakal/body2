@@ -6,14 +6,14 @@ const createPlane = () => {
     new MeshStandardMaterial({
       color: "white",
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.2,
     })
   );
 
   plane.castShadow = true;
   plane.receiveShadow = true;
   plane.rotation.x = -Math.PI / 2;
-  plane.position.set(0, 0, 0);
+  plane.position.set(0, -1, 0);
   plane.material.side = DoubleSide;
 
   return plane;

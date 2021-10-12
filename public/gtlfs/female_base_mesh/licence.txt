@@ -22,3 +22,20 @@ You do not have to comply with the license for elements of the material in the p
  domain or where your use is permitted by an applicable exception or limitation.
 No warranties are given. The license may not give you all of the permissions necessary 
 for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+---------------
+This model is a result of me retopologising, merging and slightly modifying three someone else’s models together. All of those models are CC4 attribution so there should not be any problems, but even if there is please contact me.
+
+Credits to their work:
+
+Base taken from: https://sketchfab.com/3d-models/scifi-animation-30ea70178d624b87a39553108db61bca
+
+Legs taken from: https://sketchfab.com/3d-models/female-base-mesh-v1-aed2701290de43c3affad36458358b9c
+
+Ears taken from: https://sketchfab.com/3d-models/10-15-19-female-chest-platewith-body-2f70ec18c4e44f4c9eb12cc54ffa9df0
+
+Hope you found the model helpful!
+
+License:
+CC Attribution-ShareAlike
+
+https://sketchfab.com/3d-models/female-base-mesh-b6389ae82f044dbe9945c4dad2cd72ae

@@ -8,7 +8,7 @@ const setOrbitControls = (cam, el) => {
   controls.enableDamping = true;
   controls.maxDistance = 15;
   controls.minDistance = 3;
-  controls.maxPolarAngle = (Math.PI * 0.99) / 2;
+  controls.maxPolarAngle = (Math.PI * 1.5) / 2;
   controls.enablePan = false;
 
   return controls;
