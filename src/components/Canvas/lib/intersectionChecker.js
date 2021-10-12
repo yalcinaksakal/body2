@@ -16,6 +16,7 @@ const intersectionChecker = (mouse, cube, camera) => {
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObject(cube);
   if (intersects.length > 0) {
+    console.log(intersects[0].object.name);
     helper.position.set(0, 0, 0);
     helper.lookAt(intersects[0].face.normal);
     helper.position.copy(intersects[0].point);

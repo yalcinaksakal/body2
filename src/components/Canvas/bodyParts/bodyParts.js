@@ -40,6 +40,38 @@ const bodyParts = {
         new Vector3(0.42, 0.38, -0.41),
       ],
     },
+    {
+      name: "Left Ankle",
+      points: [
+        new Vector3(0.23, 0.45, 0.16),
+        new Vector3(0.5, 0.45, 0.16),
+        new Vector3(0.22, 0.38, -0.41),
+        new Vector3(0.44, 0.38, -0.41),
+
+        new Vector3(0.2, 0.7, -0.03),
+        new Vector3(0.5, 0.7, -0.03),
+        new Vector3(0.5, 0.74, -0.36),
+        new Vector3(0.2, 0.74, -0.36),
+      ],
+    },
+    {
+      name: "Right Ankle",
+      points: [
+        new Vector3(-0.23, 0.45, 0.16),
+        new Vector3(-0.5, 0.45, 0.16),
+        new Vector3(-0.22, 0.38, -0.41),
+        new Vector3(-0.44, 0.38, -0.41),
+
+        new Vector3(-0.2, 0.7, -0.03),
+        new Vector3(-0.5, 0.7, -0.03),
+        new Vector3(-0.5, 0.74, -0.36),
+        new Vector3(-0.2, 0.74, -0.36),
+      ],
+    },
+    {
+      name: "Right Ankle",
+      points: [],
+    },
   ],
 };
 
