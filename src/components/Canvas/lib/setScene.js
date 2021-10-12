@@ -1,5 +1,5 @@
 import { Color, Scene } from "three";
-import bodyParts from "./bodyParts";
+import createCube from "./bodyParts";
 
 import myCam from "./camera";
 import createPlane from "./createPlane";
@@ -64,7 +64,7 @@ const setScene = (parent, setIsLoading) => {
 
   //background, texture onLoad calls appender
 
-  scene.background = new Color("rgb(81, 81, 81)");
+  scene.background = new Color("rgb(100, 100, 100)");
   modelLoader(appender);
 
   //onResize
@@ -84,12 +84,13 @@ const setScene = (parent, setIsLoading) => {
   };
 
   //body parts
-  const cube = bodyParts();
+  const cube = createCube();
   scene.add(cube);
   const moveCube = (x, y, z) => {
     cube.position.x += x;
     cube.position.y += y;
     cube.position.z += z;
+    console.log(cube.position);
   };
 
   //Rotation
