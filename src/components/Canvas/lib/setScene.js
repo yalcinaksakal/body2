@@ -72,27 +72,26 @@ const setScene = (parent, setIsLoading) => {
     renderer.setSize(window.innerWidth, window.innerHeight);
   };
 
+  //body parts
+  const femaleBodyParts = bodyParts.female.map(p =>
+    createBodyParts(p.points, p.name, "yellow")
+  );
+
   scene.add(helper);
   //click
   const clicked = event => {
     const mouse = posMapper(event.clientX, event.clientY);
-    intersectionChecker(mouse, cube, camera);
+    intersectionChecker(mouse, femaleBodyParts, camera);
   };
 
-  //body parts
-
-  bodyParts.female.forEach(p => {
-    if (p.points.length) scene.add(createBodyParts(p.points, p.name, "yellow"));
-  });
-
-  const cube = createCube();
-  scene.add(cube);
-  const moveCube = (x, y, z) => {
-    cube.position.x += x;
-    cube.position.y += y;
-    cube.position.z += z;
-    console.log(cube.position);
-  };
+  // const cube = createCube();
+  // scene.add(cube);
+  // const moveCube = (x, y, z) => {
+  //   cube.position.x += x;
+  //   cube.position.y += y;
+  //   cube.position.z += z;
+  //   console.log(cube.position);
+  // };
 
   domElement.addEventListener("click", clicked);
 
@@ -106,30 +105,30 @@ const setScene = (parent, setIsLoading) => {
 
   //keys
 
-  window.addEventListener("keydown", ({ code }) => {
-    switch (code) {
-      case "ArrowUp":
-        moveCube(0, 0.02, 0);
-        break;
-      case "ArrowDown":
-        moveCube(0, -0.02, 0);
-        break;
-      case "ArrowLeft":
-        moveCube(-0.02, 0, 0);
-        break;
-      case "ArrowRight":
-        moveCube(0.02, 0, 0);
-        break;
-      case "KeyA":
-        moveCube(0, 0, 0.02);
-        break;
-      case "KeyZ":
-        moveCube(0, 0, -0.02);
-        break;
-      default:
-        break;
-    }
-  });
+  // window.addEventListener("keydown", ({ code }) => {
+  //   switch (code) {
+  //     case "ArrowUp":
+  //       moveCube(0, 0.02, 0);
+  //       break;
+  //     case "ArrowDown":
+  //       moveCube(0, -0.02, 0);
+  //       break;
+  //     case "ArrowLeft":
+  //       moveCube(-0.02, 0, 0);
+  //       break;
+  //     case "ArrowRight":
+  //       moveCube(0.02, 0, 0);
+  //       break;
+  //     case "KeyA":
+  //       moveCube(0, 0, 0.02);
+  //       break;
+  //     case "KeyZ":
+  //       moveCube(0, 0, -0.02);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // });
   return {
     animate,
     onResize,

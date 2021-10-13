@@ -12,9 +12,9 @@ export const helper = new Mesh(
   })
 );
 
-const intersectionChecker = (mouse, cube, camera) => {
+const intersectionChecker = (mouse, bodyParts, camera) => {
   raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObject(cube);
+  const intersects = raycaster.intersectObjects(bodyParts);
   if (intersects.length > 0) {
     console.log(intersects[0].object.name);
     helper.position.set(0, 0, 0);
