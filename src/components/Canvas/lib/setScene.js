@@ -1,5 +1,5 @@
 import { Color, Scene } from "three";
-import createCube from "./createBodyParts";
+import createCube, { createBodyParts } from "./createBodyParts";
 
 import myCam from "./camera";
 import createPlane from "./createPlane";
@@ -9,6 +9,7 @@ import modelLoader from "./modelLoader";
 import posMapper from "./posMapper";
 import createR from "./renderer";
 import setOrbitControls from "./setOrbitControls";
+import bodyParts from "../bodyParts/bodyParts";
 
 const models = [];
 let currentModel = 0;
@@ -23,8 +24,6 @@ export const changeModel = () => {
 };
 
 const setScene = (parent, setIsLoading) => {
-  // let autoRotate = true;
-
   //renderer
   const renderer = createR();
   //camera
@@ -58,7 +57,6 @@ const setScene = (parent, setIsLoading) => {
   //animate
   const animate = () => {
     renderer.render(scene, camera);
-    // if (autoRotate) rotateModel(0.01);
     controls.update();
   };
 
@@ -83,8 +81,10 @@ const setScene = (parent, setIsLoading) => {
   };
 
   //body parts
+  // scene.add(createBodyParts(bodyParts.female[11].points, "x", "red"));
+
   const cube = createCube();
-  scene.add(cube);
+  // scene.add(cube);
   const moveCube = (x, y, z) => {
     cube.position.x += x;
     cube.position.y += y;
@@ -92,26 +92,6 @@ const setScene = (parent, setIsLoading) => {
     console.log(cube.position);
   };
 
-  //Rotation
-  // let isRotating = false;
-  // let prevX = 0;
-  // let direction = 1;
-
-  // const rotateModel = r => models.forEach(m => (m.rotation.y += r));
-  // const handleRotation = posx => {
-  //   if (autoRotate) autoRotate = false;
-  //   direction = posx > prevX ? 1 : -1;
-  //   prevX = posx;
-  //   rotateModel(0.05 * direction);
-  // };
-
-  //click
-  // domElement.addEventListener("mousedown", () => (isRotating = true));
-  // domElement.addEventListener("mouseup", () => (isRotating = false));
-  // domElement.addEventListener("mousemove", e => {
-  //   if (!isRotating) return;
-  //   handleRotation(e.clientX);
-  // });
   domElement.addEventListener("click", clicked);
 
   // //touch

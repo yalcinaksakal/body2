@@ -133,11 +133,90 @@ const bodyParts = {
       ],
     },
     {
-      name: "Right Ankle",
+      name: "Right Thigh",
+      points: [
+        new Vector3(-0.65, 2.34, 0.07),
+        new Vector3(-0.15, 2.34, 0.07),
+        new Vector3(-0.15, 2.34, -0.4),
+        new Vector3(-0.6, 2.34, -0.4),
+
+        new Vector3(-0.7, 4.1, 0.2),
+        new Vector3(-0.1, 3.6, 0.1),
+
+        new Vector3(0, 3.5, -0.2),
+
+        new Vector3(-0.45, 3.75, 0.3),
+
+        new Vector3(-0.2, 3.4, -0.5),
+
+        new Vector3(-0.65, 3.54, -0.5),
+        new Vector3(-0.75, 3.7, -0.27),
+      ],
+    },
+    {
+      name: "Left Thigh",
+      points: [
+        new Vector3(0.65, 2.34, 0.07),
+        new Vector3(0.15, 2.34, 0.07),
+        new Vector3(0.15, 2.34, -0.4),
+        new Vector3(0.6, 2.34, -0.4),
+
+        new Vector3(0.7, 4.1, 0.2),
+        new Vector3(0.1, 3.6, 0.1),
+
+        new Vector3(0, 3.5, -0.2),
+
+        new Vector3(0.45, 3.75, 0.3),
+
+        new Vector3(0.2, 3.4, -0.5),
+
+        new Vector3(0.65, 3.54, -0.5),
+        new Vector3(0.75, 3.7, -0.27),
+      ],
+    },
+    {
+      name: "Genitals, Urinary tract, Groin",
+      points: [
+        new Vector3(-0.7, 4.1, 0.2),
+        new Vector3(-0.5, 4.1, 0.3),
+
+        new Vector3(-0.1, 3.6, 0.1),
+        new Vector3(0, 3.5, -0.2),
+        new Vector3(-0.5, 3.8, 0.3),
+        new Vector3(-0.75, 3.7, -0.27),
+
+        new Vector3(0.7, 4.1, 0.2),
+        new Vector3(0.5, 4.1, 0.3),
+
+        new Vector3(0.1, 3.6, 0.1),
+        new Vector3(0, 3.5, -0.2),
+        new Vector3(0.5, 3.8, 0.3),
+        new Vector3(0.75, 3.7, -0.27),
+      ],
+    },
+    {
+      name: "Buttocks, Anal Region",
+      points: [
+        new Vector3(-0.75, 4.1, 0.2),
+        new Vector3(0, 3.5, -0.2),
+        new Vector3(-0.3, 3.4, -0.5),
+        new Vector3(-0.65, 3.54, -0.5),
+        new Vector3(0.75, 4.1, 0.2),
+        new Vector3(0, 3.5, -0.2),
+        new Vector3(0.3, 3.4, -0.5),
+        new Vector3(0.65, 3.54, -0.5),
+        new Vector3(-0.3, 3.94, -0.7),
+        new Vector3(0.3, 3.94, -0.7),
+        new Vector3(0.65, 4.38, -0.47),
+        new Vector3(-0.65, 4.38, -0.47),
+      ],
+    },
+    {
+      name: "Left Thigh",
       points: [],
     },
     {
-      name: "Right Ankle",
+      name: "Left Thigh",
       points: [],
     },
   ],
