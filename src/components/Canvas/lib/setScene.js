@@ -76,15 +76,14 @@ const setScene = (parent, setIsLoading) => {
   const clicked = event => {
     const mouse = posMapper(event.clientX, event.clientY);
     intersectionChecker(mouse, cube, camera);
-
-    // panDelta.subVectors( panEnd, panStart ).multiplyScalar( scope.panSpeed );
   };
 
   //body parts
-  // scene.add(createBodyParts(bodyParts.female[11].points, "x", "red"));
 
+  scene.add(createBodyParts(bodyParts.female[12].points, "x", "red"));
+  scene.add(createBodyParts(bodyParts.female[13].points, "x", "red"));
   const cube = createCube();
-  // scene.add(cube);
+  scene.add(cube);
   const moveCube = (x, y, z) => {
     cube.position.x += x;
     cube.position.y += y;
