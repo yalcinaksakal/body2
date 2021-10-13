@@ -2,7 +2,7 @@ import { Raycaster, CylinderGeometry, Mesh, MeshStandardMaterial } from "three";
 
 const raycaster = new Raycaster();
 
-const geometryHelper = new CylinderGeometry(0.1, 0.1, 0.01, 64);
+const geometryHelper = new CylinderGeometry(0.08, 0.08, 0.01, 64);
 geometryHelper.rotateX(Math.PI / 2);
 
 export const helper = new Mesh(
