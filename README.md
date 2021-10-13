@@ -1,6 +1,6 @@
 React
-Redux
 Three.js
 
+Interactive body parts webapp, mobile responsive
+
 live demo
-https://space2.vercel.app/
