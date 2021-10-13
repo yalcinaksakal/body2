@@ -113,6 +113,17 @@ const createCube = () => {
   // points.push(new Vector3(-0.265, 6.72, 0.06));
   // points.push(new Vector3(0.265, 6.72, 0.06));
 
+  // //kulakaltı
+  // // points.push(new Vector3(0.28, 6.54, -0.2));
+  // points.push(new Vector3(-0.28, 6.54, -0.2));
+
+  // // //kulak yüz üst
+  // points.push(new Vector3(-0.32, 6.72, -0.18));
+  // // points.push(new Vector3(0.32, 6.72, -0.18));
+
+  // points.push(new Vector3(-0.32, 6.78, -0.18));
+  // // points.push(new Vector3(0.32, 6.78, -0.18));
+
   // //alın üst
   // points.push(new Vector3(-0.29, 6.88, -0.1));
   // points.push(new Vector3(0.29, 6.88, -0.1));
@@ -128,24 +139,56 @@ const createCube = () => {
 
   // points.push(new Vector3(0, 6.94, 0.25));
 
-  //kulakaltı
-  // points.push(new Vector3(0.28, 6.54, -0.2));
-  points.push(new Vector3(-0.28, 6.54, -0.2));
+  // points.push(new Vector3(-0.25, 6.94, -0.44));
+  // points.push(new Vector3(0.25, 6.94, -0.44));
 
-  // //kulak yüz üst
-  points.push(new Vector3(-0.32, 6.72, -0.18));
-  // points.push(new Vector3(0.32, 6.72, -0.18));
+  // points.push(new Vector3(0, 6.94, -0.62));
 
-  points.push(new Vector3(-0.32, 6.78, -0.18));
-  // points.push(new Vector3(0.32, 6.78, -0.18));
+  // points.push(new Vector3(0, 7.16, -0.44));
+  // points.push(new Vector3(0, 7.22, -0.2));
+  // points.push(new Vector3(0, 7.14, 0.08));
+
+  // points.push(new Vector3(-0.26, 7.06, -0.08));
+  // points.push(new Vector3(0.26, 7.06, -0.08));
+
+  // points.push(new Vector3(-0.12, 7.12, 0.06));
+  // points.push(new Vector3(0.12, 7.12, 0.06));
+  // //kulak arka üst dış
+  // points.push(new Vector3(-0.37, 6.84, -0.35));
+  // points.push(new Vector3(0.37, 6.84, -0.35));
+
+  // points.push(new Vector3(-0.2, 7.16, -0.16));
+  // points.push(new Vector3(0.2, 7.16, -0.16));
+
+  // points.push(new Vector3(-0.2, 7.13, -0.46));
+  // points.push(new Vector3(0.2, 7.13, -0.46));
+
+  // points.push(new Vector3(-0.16, 6.84, -0.58));
+  // points.push(new Vector3(0.16, 6.84, -0.58));
+
+  //kulak üst hizadan kafa arkası
+  points.push(new Vector3(-0.18, 6.76, -0.54));
+  points.push(new Vector3(0.18, 6.76, -0.54));
+  points.push(new Vector3(0, 6.76, -0.6));
 
   //kulak arka üst dış
   points.push(new Vector3(-0.37, 6.84, -0.35));
-  // points.push(new Vector3(0.35, 6.8, -0.3));
-
+  points.push(new Vector3(0.37, 6.84, -0.35));
   //kulak arka alt dış
   points.push(new Vector3(-0.37, 6.62, -0.32));
-  // points.push(new Vector3(0.35, 6.62, -0.3));
+  points.push(new Vector3(0.37, 6.62, -0.32));
+  // //kulakaltı
+  points.push(new Vector3(0.28, 6.54, -0.2));
+  points.push(new Vector3(-0.28, 6.54, -0.2));
+
+  // boyun tavan arka
+  points.push(new Vector3(0, 6.44, -0.5));
+  points.push(new Vector3(0.16, 6.42, -0.45));
+  points.push(new Vector3(-0.16, 6.42, -0.45));
+
+  // boyun tavan omuz
+  points.push(new Vector3(0.22, 6.44, -0.26));
+  points.push(new Vector3(-0.22, 6.44, -0.26));
 
   const geometry = new BoxGeometry(0.01, 0.01, 0.01);
   const material = new MeshBasicMaterial({
@@ -154,9 +197,9 @@ const createCube = () => {
     // opacity: 0.2,
   });
   const cube = new Mesh(geometry, material);
-  cube.position.set(-0.29, 6.88, -0.1);
-  return cube;
-  // return createBodyParts(points, "ankle");
+  cube.position.set(-0.26, 7.06, -0.08);
+  // return cube;
+  return createBodyParts(points, "ankle");
 };
 
 export default createCube;
