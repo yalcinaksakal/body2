@@ -73,6 +73,7 @@ const setScene = (parent, setIsLoading) => {
   };
 
   scene.add(helper);
+  //click
   const clicked = event => {
     const mouse = posMapper(event.clientX, event.clientY);
     intersectionChecker(mouse, cube, camera);
