@@ -29,11 +29,6 @@ const createCube = () => {
   // points.push(new Vector3(0.16, 6.42, -0.45));
   // points.push(new Vector3(-0.16, 6.42, -0.45));
 
-  points.push(new Vector3(-2.5, 5.8, 0));
-  points.push(new Vector3(-2.35, 6, 0.17));
-  points.push(new Vector3(-2.35, 5.8, 0.17));
-  points.push(new Vector3(-2.5, 6, 0.03));
-
   const geometry = new BoxGeometry(0.01, 0.01, 0.01);
   const material = new MeshBasicMaterial({
     color: "dodgerblue",
@@ -41,9 +36,9 @@ const createCube = () => {
     // opacity: 0.2,
   });
   const cube = new Mesh(geometry, material);
-  cube.position.set(-0.5, 5.7, 0.22);
-  // return cube;
-  return createBodyParts(points, "ankle");
+  cube.position.set(0.22, 6.44, -0.26);
+  return cube;
+  // return createBodyParts(points, "ankle");
 };
 
 export default createCube;
