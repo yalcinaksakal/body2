@@ -80,8 +80,10 @@ const setScene = (parent, setIsLoading) => {
 
   //body parts
 
-  scene.add(createBodyParts(bodyParts.female[12].points, "x", "red"));
-  scene.add(createBodyParts(bodyParts.female[13].points, "x", "red"));
+  bodyParts.female.forEach(p => {
+    if (p.points.length) scene.add(createBodyParts(p.points, p.name, "yellow"));
+  });
+
   const cube = createCube();
   scene.add(cube);
   const moveCube = (x, y, z) => {

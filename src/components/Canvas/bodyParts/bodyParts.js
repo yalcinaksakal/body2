@@ -252,6 +252,108 @@ const bodyParts = {
       ],
     },
     {
+      name: "Chest",
+      points: [
+        new Vector3(0.5, 5.1, -0.16),
+        new Vector3(-0.5, 5.1, -0.16),
+        new Vector3(0.47, 5, 0.3),
+        new Vector3(-0.47, 5, 0.3),
+        new Vector3(-0.26, 5.2, 0.25),
+        new Vector3(0, 5.3, 0.3),
+        new Vector3(0.26, 5.2, 0.25),
+        new Vector3(0.58, 5.5, -0.2),
+        new Vector3(-0.58, 5.5, -0.2),
+      ],
+    },
+    {
+      name: "Breasts",
+      points: [
+        new Vector3(-0.26, 5.2, 0.25),
+        new Vector3(0, 5.3, 0.3),
+        new Vector3(0.26, 5.2, 0.25),
+
+        new Vector3(0.58, 5.5, -0.2),
+        new Vector3(-0.58, 5.5, -0.2),
+        new Vector3(-0.54, 5.2, 0.06),
+        new Vector3(0.54, 5.2, 0.06),
+
+        new Vector3(0.58, 5.46, 0.25),
+        new Vector3(-0.58, 5.46, 0.25),
+        new Vector3(0.5, 5.2, 0.32),
+        new Vector3(-0.5, 5.2, 0.32),
+        new Vector3(0.36, 5.45, 0.34),
+        new Vector3(0, 5.5, 0.1),
+        new Vector3(-0.36, 5.45, 0.34),
+
+        new Vector3(0.48, 5.7, 0.22),
+        new Vector3(-0.48, 5.7, 0.22),
+      ],
+    },
+    {
+      name: "Chest",
+      points: [
+        new Vector3(0.48, 5.7, 0.22),
+        new Vector3(-0.48, 5.7, 0.22),
+        new Vector3(0.6, 5.4, -0.2),
+        new Vector3(-0.6, 5.4, -0.2),
+        new Vector3(-0.6, 5.8, -0.02),
+        new Vector3(0.6, 5.8, -0.02),
+        new Vector3(0.22, 6.06, -0.1),
+        new Vector3(-0.22, 6.06, -0.1),
+      ],
+    },
+    {
+      name: "Back",
+      points: [
+        new Vector3(0.43, 5.1, -0.5),
+        new Vector3(-0.43, 5.1, -0.5),
+        new Vector3(0.5, 5.1, -0.16),
+        new Vector3(-0.5, 5.1, -0.16),
+
+        new Vector3(0.58, 5.5, -0.2),
+        new Vector3(-0.58, 5.5, -0.2),
+
+        new Vector3(-0.58, 5.54, -0.65),
+        new Vector3(0.58, 5.54, -0.65),
+
+        new Vector3(0.22, 6.08, -0.62),
+        new Vector3(-0.22, 6.08, -0.62),
+      ],
+    },
+    {
+      name: "Neck",
+      points: [
+        //  boyun taban arka
+        new Vector3(0.22, 6.08, -0.62),
+        new Vector3(-0.22, 6.08, -0.62),
+        // boyun taban ön
+        new Vector3(0.22, 6.06, -0.1),
+        new Vector3(-0.22, 6.06, -0.1),
+        //boyun taban omuz
+        new Vector3(0.28, 6.22, -0.42),
+        new Vector3(-0.28, 6.22, -0.42),
+        // boyun tavan omuz
+        new Vector3(0.22, 6.44, -0.26),
+        new Vector3(-0.22, 6.44, -0.26),
+        // boyun tavan ön
+        new Vector3(0.02, 6.3, 0.02),
+        new Vector3(0.16, 6.35, -0.05),
+        new Vector3(-0.16, 6.35, -0.05),
+        // boyun tavan arka
+        new Vector3(0, 6.44, -0.5),
+        new Vector3(0.16, 6.42, -0.45),
+        new Vector3(-0.16, 6.42, -0.45),
+      ],
+    },
+    {
+      name: "Left Thigh",
+      points: [],
+    },
+    {
+      name: "Left Thigh",
+      points: [],
+    },
+    {
       name: "Left Thigh",
       points: [],
     },
