@@ -20,11 +20,7 @@ function App() {
       {!isLoading && (
         <button
           onClick={() =>
-            setBodyPart(
-              changeModel()
-                ? "Body parts of male model is not selectable yet "
-                : ""
-            )
+            setBodyPart(changeModel() ? "Not interactive yet " : "")
           }
         >
           Change Gender
