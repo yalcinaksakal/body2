@@ -3,4 +3,4 @@ Three.js
 
 Interactive body parts webapp, mobile responsive
 
-live demo
+live demo https://body2.vercel.app/
