@@ -1,4 +1,5 @@
-import { BoxGeometry, Vector3, MeshBasicMaterial, Mesh } from "three";
+import { BoxGeometry, MeshBasicMaterial, Mesh } from "three";
+// import { Vector3 } from "three";
 import { ConvexGeometry } from "three/examples/jsm/geometries/ConvexGeometry";
 
 export const createBodyParts = (points, name, color = "dodgerblue") => {
@@ -24,7 +25,7 @@ const createCube = () => {
     // opacity: 0.2,
   });
   const cube = new Mesh(geometry, material);
-  cube.position.set(-0.26, 7.06, -0.08);
+  cube.position.set(-1.02, 5.74, -0.52);
   return cube;
   // return createBodyParts(points, "ankle");
 };

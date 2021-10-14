@@ -9,7 +9,7 @@ import modelLoader from "./modelLoader";
 import posMapper from "./posMapper";
 import createR from "./renderer";
 import setOrbitControls from "./setOrbitControls";
-import bodyParts from "../bodyParts/bodyParts";
+import femaleBodyParts from "../bodyParts/bodyParts";
 
 const models = [];
 let currentModel = 0;
@@ -73,7 +73,8 @@ const setScene = (parent, setIsLoading) => {
   };
 
   //body parts
-  const femaleBodyParts = bodyParts.female.map(p =>
+
+  const femaleBodyPartsConvex = femaleBodyParts.map(p =>
     createBodyParts(p.points, p.name, "yellow")
   );
 
@@ -81,17 +82,17 @@ const setScene = (parent, setIsLoading) => {
   //click
   const clicked = event => {
     const mouse = posMapper(event.clientX, event.clientY);
-    intersectionChecker(mouse, femaleBodyParts, camera);
+    intersectionChecker(mouse, femaleBodyPartsConvex, camera);
   };
 
-  // const cube = createCube();
-  // scene.add(cube);
-  // const moveCube = (x, y, z) => {
-  //   cube.position.x += x;
-  //   cube.position.y += y;
-  //   cube.position.z += z;
-  //   console.log(cube.position);
-  // };
+  const cube = createCube();
+  scene.add(cube);
+  const moveCube = (x, y, z) => {
+    cube.position.x += x;
+    cube.position.y += y;
+    cube.position.z += z;
+    console.log(cube.position);
+  };
 
   domElement.addEventListener("click", clicked);
 
@@ -105,30 +106,30 @@ const setScene = (parent, setIsLoading) => {
 
   //keys
 
-  // window.addEventListener("keydown", ({ code }) => {
-  //   switch (code) {
-  //     case "ArrowUp":
-  //       moveCube(0, 0.02, 0);
-  //       break;
-  //     case "ArrowDown":
-  //       moveCube(0, -0.02, 0);
-  //       break;
-  //     case "ArrowLeft":
-  //       moveCube(-0.02, 0, 0);
-  //       break;
-  //     case "ArrowRight":
-  //       moveCube(0.02, 0, 0);
-  //       break;
-  //     case "KeyA":
-  //       moveCube(0, 0, 0.02);
-  //       break;
-  //     case "KeyZ":
-  //       moveCube(0, 0, -0.02);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // });
+  window.addEventListener("keydown", ({ code }) => {
+    switch (code) {
+      case "ArrowUp":
+        moveCube(0, 0.02, 0);
+        break;
+      case "ArrowDown":
+        moveCube(0, -0.02, 0);
+        break;
+      case "ArrowLeft":
+        moveCube(-0.02, 0, 0);
+        break;
+      case "ArrowRight":
+        moveCube(0.02, 0, 0);
+        break;
+      case "KeyA":
+        moveCube(0, 0, 0.02);
+        break;
+      case "KeyZ":
+        moveCube(0, 0, -0.02);
+        break;
+      default:
+        break;
+    }
+  });
   return {
     animate,
     onResize,
