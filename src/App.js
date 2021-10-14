@@ -17,17 +17,19 @@ function App() {
       <div className={styles.home}>
         <Canvas setIsLoading={setIsLoading} setBodyPart={setBodyPart} />
       </div>
-      <button
-        onClick={() =>
-          setBodyPart(
-            changeModel()
-              ? "Body parts of male model is not selectable yet "
-              : ""
-          )
-        }
-      >
-        Change Gender
-      </button>
+      {!isLoading && (
+        <button
+          onClick={() =>
+            setBodyPart(
+              changeModel()
+                ? "Body parts of male model is not selectable yet "
+                : ""
+            )
+          }
+        >
+          Change Gender
+        </button>
+      )}
     </>
   );
 }
