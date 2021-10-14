@@ -20,6 +20,7 @@ const intersectionChecker = (mouse, bodyParts, camera, setBodyPart) => {
     helper.position.set(0, 0, 0);
     helper.lookAt(intersects[0].face.normal);
     helper.position.copy(intersects[0].point);
+    helper.name = "helper";
     return true;
   }
   return false;
