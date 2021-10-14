@@ -12,15 +12,17 @@ export const helper = new Mesh(
   })
 );
 
-const intersectionChecker = (mouse, bodyParts, camera) => {
+const intersectionChecker = (mouse, bodyParts, camera, setBodyPart) => {
   raycaster.setFromCamera(mouse, camera);
   const intersects = raycaster.intersectObjects(bodyParts);
   if (intersects.length > 0) {
-    console.log(intersects[0].object.name);
+    setBodyPart(intersects[0].object.name);
     helper.position.set(0, 0, 0);
     helper.lookAt(intersects[0].face.normal);
     helper.position.copy(intersects[0].point);
+    return true;
   }
+  return false;
 };
 
 export default intersectionChecker;

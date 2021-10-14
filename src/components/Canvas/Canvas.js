@@ -2,11 +2,15 @@ import { useEffect, useRef } from "react";
 
 import setScene from "./lib/setScene";
 
-const Canvas = ({ setIsLoading }) => {
+const Canvas = ({ setIsLoading, setBodyPart }) => {
   const canvasRef = useRef();
 
   useEffect(() => {
-    const { onResize, animate } = setScene(canvasRef.current, setIsLoading);
+    const { onResize, animate } = setScene(
+      canvasRef.current,
+      setIsLoading,
+      setBodyPart
+    );
 
     let frameId;
 
@@ -26,7 +30,7 @@ const Canvas = ({ setIsLoading }) => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", onResize);
     };
-  }, [setIsLoading]);
+  }, [setIsLoading, setBodyPart]);
 
   return (
     <div

@@ -1,6 +1,6 @@
 import { Color, Scene } from "three";
-import createCube, { createBodyParts } from "./createBodyParts";
-
+import { createBodyParts } from "./createBodyParts";
+// import createCube from "./createBodyParts";
 import myCam from "./camera";
 import createPlane from "./createPlane";
 import intersectionChecker, { helper } from "./intersectionChecker";
@@ -21,9 +21,11 @@ export const changeModel = () => {
   currentModel++;
   currentModel %= 2;
   scene.add(models[currentModel]);
+  scene.remove(helper);
+  return currentModel;
 };
 
-const setScene = (parent, setIsLoading) => {
+const setScene = (parent, setIsLoading, setBodyPart) => {
   //renderer
   const renderer = createR();
   //camera
@@ -78,58 +80,58 @@ const setScene = (parent, setIsLoading) => {
     createBodyParts(p.points, p.name, "yellow")
   );
 
-  scene.add(helper);
+  // scene.add(helper);
   //click
   const clicked = event => {
+    if (currentModel === 1) return;
     const mouse = posMapper(event.clientX, event.clientY);
-    intersectionChecker(mouse, femaleBodyPartsConvex, camera);
+    const isIntesecting = intersectionChecker(
+      mouse,
+      femaleBodyPartsConvex,
+      camera,
+      setBodyPart
+    );
+
+    if (isIntesecting && !scene.children.includes(helper)) scene.add(helper);
   };
 
-  const cube = createCube();
-  scene.add(cube);
-  const moveCube = (x, y, z) => {
-    cube.position.x += x;
-    cube.position.y += y;
-    cube.position.z += z;
-    console.log(cube.position);
-  };
+  // const cube = createCube();
+  // scene.add(cube);
+  // const moveCube = (x, y, z) => {
+  //   cube.position.x += x;
+  //   cube.position.y += y;
+  //   cube.position.z += z;
+  //   console.log(cube.position);
+  // };
 
   domElement.addEventListener("click", clicked);
 
-  // //touch
-  // domElement.addEventListener("touchstart", () => (isRotating = true));
-  // domElement.addEventListener("touchend", () => (isRotating = false));
-  // domElement.addEventListener("touchmove", e => {
-  //   if (!isRotating) return;
-  //   handleRotation(e.touches[0].clientX);
-  // });
-
   //keys
 
-  window.addEventListener("keydown", ({ code }) => {
-    switch (code) {
-      case "ArrowUp":
-        moveCube(0, 0.02, 0);
-        break;
-      case "ArrowDown":
-        moveCube(0, -0.02, 0);
-        break;
-      case "ArrowLeft":
-        moveCube(-0.02, 0, 0);
-        break;
-      case "ArrowRight":
-        moveCube(0.02, 0, 0);
-        break;
-      case "KeyA":
-        moveCube(0, 0, 0.02);
-        break;
-      case "KeyZ":
-        moveCube(0, 0, -0.02);
-        break;
-      default:
-        break;
-    }
-  });
+  // window.addEventListener("keydown", ({ code }) => {
+  //   switch (code) {
+  //     case "ArrowUp":
+  //       moveCube(0, 0.02, 0);
+  //       break;
+  //     case "ArrowDown":
+  //       moveCube(0, -0.02, 0);
+  //       break;
+  //     case "ArrowLeft":
+  //       moveCube(-0.02, 0, 0);
+  //       break;
+  //     case "ArrowRight":
+  //       moveCube(0.02, 0, 0);
+  //       break;
+  //     case "KeyA":
+  //       moveCube(0, 0, 0.02);
+  //       break;
+  //     case "KeyZ":
+  //       moveCube(0, 0, -0.02);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // });
   return {
     animate,
     onResize,
