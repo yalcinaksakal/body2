@@ -1,4 +1,13 @@
-import { Color, Scene } from "three";
+import {
+  Color,
+  PCFShadowMap,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
+} from "three";
+
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
 import { createBodyParts } from "./createBodyParts";
 // import createCube from "./createBodyParts";
 import myCam from "./camera";
@@ -26,13 +35,27 @@ export const changeModel = () => {
 };
 
 const setScene = (parent, setIsLoading, setBodyPart) => {
-  //renderer
-  const renderer = createR();
-  //camera
-  const camera = myCam();
+  const renderer = new WebGLRenderer();
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = PCFShadowMap;
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-  //scene
-  scene = new Scene();
+  const fov = 60;
+  const aspect = 2; // the canvas default
+  const near = 0.1;
+  const far = 10000;
+  const camera = new PerspectiveCamera(fov, aspect, near, far);
+  camera.position.z = 2.5;
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.enablePan = false;
+  controls.minDistance = 1.2;
+  controls.maxDistance = 5000;
+  controls.update();
+
+  const scene = new Scene();
 
   //plane
   const plane = createPlane();
@@ -51,15 +74,6 @@ const setScene = (parent, setIsLoading, setBodyPart) => {
     scene.add(models[currentModel]);
     setIsLoading(false);
     parent.appendChild(domElement);
-  };
-
-  //add controls
-  const controls = setOrbitControls(camera, domElement);
-
-  //animate
-  const animate = () => {
-    renderer.render(scene, camera);
-    controls.update();
   };
 
   //background, texture onLoad calls appender
@@ -96,47 +110,42 @@ const setScene = (parent, setIsLoading, setBodyPart) => {
     if (isIntesecting && !scene.children.includes(helper)) scene.add(helper);
   };
 
-  // const cube = createCube();
-  // scene.add(cube);
-  // const moveCube = (x, y, z) => {
-  //   cube.position.x += x;
-  //   cube.position.y += y;
-  //   cube.position.z += z;
-  //   console.log(cube.position);
-  // };
-
   domElement.addEventListener("click", clicked);
 
-  //keys
+  //   -------
 
-  // window.addEventListener("keydown", ({ code }) => {
-  //   switch (code) {
-  //     case "ArrowUp":
-  //       moveCube(0, 0.02, 0);
-  //       break;
-  //     case "ArrowDown":
-  //       moveCube(0, -0.02, 0);
-  //       break;
-  //     case "ArrowLeft":
-  //       moveCube(-0.02, 0, 0);
-  //       break;
-  //     case "ArrowRight":
-  //       moveCube(0.02, 0, 0);
-  //       break;
-  //     case "KeyA":
-  //       moveCube(0, 0, 0.02);
-  //       break;
-  //     case "KeyZ":
-  //       moveCube(0, 0, -0.02);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // });
-  return {
-    animate,
-    onResize,
-  };
+  let renderRequested = false;
+
+
+  //animate
+  //   const animate = () => {
+  //     renderer.render(scene, camera);
+  //     controls.update();
+  //   };
+
+  function render() {
+    renderRequested = undefined;
+
+    // if (resizeRendererToDisplaySize(renderer)) {
+    //   const canvas = renderer.domElement;
+    //   camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    //   camera.updateProjectionMatrix();
+    // }
+
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  render();
+
+  function requestRenderIfNotRequested() {
+    if (!renderRequested) {
+      renderRequested = true;
+      requestAnimationFrame(render);
+    }
+  }
+
+  controls.addEventListener("change", requestRenderIfNotRequested);
+  //   window.addEventListener("resize", requestRenderIfNotRequested);
 };
 
 export default setScene;
