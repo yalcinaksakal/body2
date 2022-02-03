@@ -1,16 +1,15 @@
 .p {
-  position: fixed;
-  margin: 0;
-  bottom: 0;
-  left: 5px;
-  color: white;
-  font-size: 15px;
-  user-select: none;
-  z-index: 100;
-  transition: all 0.2s ease;
+	position: fixed;
+	margin: 0;
+	bottom: 0;
+	left: 5px;
+	color: gray;
+	font-size: 15px;
+	user-select: none;
+	z-index: 100;
+	transition: all 0.2s ease;
 }
 
 .red {
-  color: limegreen;
-  font-weight: bolder;
+	color: white;
 }
